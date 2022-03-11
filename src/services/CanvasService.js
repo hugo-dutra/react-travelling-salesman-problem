@@ -1,5 +1,5 @@
 export const drawCircle = (x, y, radius) => {
-  var panelCanvas = document.getElementById("panelCanvas");
+  const panelCanvas = document.getElementById("panelCanvas");
   panelCanvas.width = window.innerWidth;
   panelCanvas.height = window.innerHeight;
   const ctx = panelCanvas.getContext("2d");

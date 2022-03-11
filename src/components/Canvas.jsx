@@ -1,0 +1,19 @@
+import React, { useRef, useEffect } from 'react'
+
+const Canvas = (props) => {
+
+  const canvasRef = useRef(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const context = canvas.getContext('2d')
+    context.fillStyle = '#00FF00'
+    context.fillRect(0, 0, context.canvas.width, context.canvas.height)
+  }, [])
+
+  return <canvas ref={canvasRef} {...props} />
+}
+
+export default Canvas
