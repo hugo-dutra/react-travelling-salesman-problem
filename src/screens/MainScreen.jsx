@@ -1,8 +1,15 @@
 import React from 'react'
+import Controls from '../components/Controls';
+import MainPanel from '../components/MainPanel';
 
 const MainScreen = () => {
   return (
-    <h1>MainScreen</h1>
+    <div>
+
+      <Controls />
+      <MainPanel />
+
+    </div>
   )
 }
 
