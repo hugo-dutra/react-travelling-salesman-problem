@@ -5,10 +5,8 @@ import MainPanel from '../components/MainPanel';
 const MainScreen = () => {
   return (
     <div>
-
       <Controls />
       <MainPanel />
-
     </div>
   )
 }

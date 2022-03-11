@@ -1,13 +1,13 @@
 import React from 'react';
-import PointPositionCircle from './PointPositionCircle';
+import CanvasPoints from './CanvasPoints';
 
 
 const MainPanel = () => {
 
   return (
     <div>
-      <h1>Canvas aqui...</h1>
-      <PointPositionCircle />
+      <h1>MainPanel</h1>
+      <canvas id="panelCanvas"></canvas>
     </div>
   )
 }
