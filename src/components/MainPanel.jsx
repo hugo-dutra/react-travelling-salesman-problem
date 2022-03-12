@@ -6,16 +6,16 @@ import Canvas from './Canvas';
 
 const circles = [];
 
-const MainPanel = () => {
-  const handleCanvasClick = (e) => {
-    const { clientX, clientY } = e;
-    console.clear();
-    console.log(clientX, clientY);
+const MainPanel = (props) => {
+
+
+  const pontosRecuperados = (pontos) => {
+    props.posicaoPontos(pontos)
   }
 
   return (
     <div className='MainPanel'>
-      <Canvas />
+      <Canvas enviarPontos={pontosRecuperados} />
     </div>
   )
 }

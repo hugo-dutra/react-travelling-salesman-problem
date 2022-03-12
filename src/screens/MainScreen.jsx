@@ -2,12 +2,19 @@ import './MainScreen.css'
 import React from 'react'
 import Controls from '../components/Controls';
 import MainPanel from '../components/MainPanel';
+import { useState } from 'react';
 
-const MainScreen = () => {
+const MainScreen = (props) => {
+  const [pontos, setPontos] = useState([]);
+
+  const listarPontos = (pontos) => {
+    setPontos([...pontos]);
+  }
+
   return (
     <div className='MainScreen'>
-      <MainPanel />
-      <Controls />
+      <MainPanel posicaoPontos={listarPontos} />
+      <Controls pontos={pontos} />
     </div>
   )
 }
