@@ -1,3 +1,4 @@
+import './MainPanel.css'
 import React from 'react';
 import { useState } from 'react';
 import { drawCircle, clearCanvas } from '../services/CanvasService';
@@ -13,8 +14,7 @@ const MainPanel = () => {
   }
 
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <h1>MainPanel</h1>
+    <div className='MainPanel'>
       <Canvas />
     </div>
   )

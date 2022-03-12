@@ -1,0 +1,10 @@
+.CanvasClass {
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px 5px 0px 0px;
+  height: 80vh;
+  width: 97vw;
+}
