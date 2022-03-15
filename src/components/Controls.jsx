@@ -1,11 +1,13 @@
 import './Controls.css'
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../data/DataContext';
 
 const Controls = (props) => {
-  const { pontos } = props;
+  const { points } = useContext(DataContext);
+
   return (
     <div className='Controls'>
-      <button onClick={() => { console.log(pontos) }}>Teste</button>
+      <button onClick={() => { points.length = 0 }}>Limpar pontos</button>
     </div>
   )
 }

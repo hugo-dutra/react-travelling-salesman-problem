@@ -7,13 +7,9 @@ const circles = [];
 
 const MainPanel = (props) => {
 
-  const pontosRecuperados = (pontos) => {
-    props.posicaoPontos(pontos)
-  }
-
   return (
     <div className='MainPanel'>
-      <Canvas enviarPontos={pontosRecuperados} />
+      <Canvas />
     </div>
   )
 }

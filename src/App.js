@@ -1,9 +1,13 @@
+import { DataContext, points } from "./data/DataContext";
 import MainScreen from "./screens/MainScreen";
+
 
 
 const App = () => {
   return (
-    <MainScreen />
+    <DataContext.Provider value={{ points }}>
+      <MainScreen />
+    </DataContext.Provider>
   );
 }
 
