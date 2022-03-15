@@ -21,13 +21,13 @@ const Canvas = (props) => {
     const canvas = canvasRef.current;
     points.push({ x: clientX, y: clientY });
     setPoints([...points]);
-    canvas.width = 1080;
-    canvas.height = 600;
+    canvas.width = window.innerWidth * 0.98;
+    canvas.height = window.innerHeight * 0.72;
     const context = canvas.getContext('2d');
 
     for (let i = 0; i < points.length; i++) {
       context.beginPath();
-      context.arc(points[i].x - window.screen.width * 0.24, points[i].y - window.screen.height * 0.02, 5, 0, 2 * Math.PI);
+      context.arc(points[i].x - 5, points[i].y - 5, 5, 0, 2 * Math.PI);
       context.fillStyle = "red";
       context.fill();
       context.stroke();

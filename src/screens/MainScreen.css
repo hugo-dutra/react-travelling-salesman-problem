@@ -3,7 +3,6 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  margin: 10px;
   border-radius: 5px;
-  height: 96vh;
+  height: 100vh;
 }

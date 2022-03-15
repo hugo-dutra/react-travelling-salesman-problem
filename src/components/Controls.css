@@ -1,5 +1,12 @@
 .Controls {
   background-color: rgb(209, 202, 238);
+  border: rgb(94, 94, 245) 2px solid;
   flex: 1;
   border-radius: 0px 0px 5px 5px;
+  text-align: center;
+}
+
+.Controls button {
+  width: 20vh;
+  cursor: pointer;
 }
