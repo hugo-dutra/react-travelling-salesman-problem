@@ -3,11 +3,14 @@ import React, { useContext } from 'react';
 import { DataContext } from '../data/DataContext';
 
 const Controls = (props) => {
-  const { points } = useContext(DataContext);
-
+  const { state, setState } = useContext(DataContext);
   return (
     <div className='Controls'>
-      <button onClick={() => { points.length = 0 }}>Limpar pontos</button>
+      <button onClick={() => {
+        setState({
+          points: []
+        })
+      }}>Limpar pontos</button>
     </div>
   )
 }

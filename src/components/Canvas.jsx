@@ -24,6 +24,7 @@ const Canvas = (props) => {
       points: [...state.points, { x: clientX, y: clientY }]
     })
     const { points } = state;
+
     canvas.width = window.innerWidth * 0.98;
     canvas.height = window.innerHeight * 0.72;
     const context = canvas.getContext('2d');
