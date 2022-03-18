@@ -1,20 +1,28 @@
-import './MainScreen.css'
-import React from 'react'
-import Controls from '../components/Controls';
-import MainPanel from '../components/MainPanel';
-import { useState } from 'react';
+import './MainScreen.css';
+import React from 'react';
+import Caminho from '../components/Caminho';
+import Controles from '../components/Controles';
+import Grafico from '../components/Grafico';
+import GraficoLabels from '../components/GraficoLabels';
+
 
 const MainScreen = (props) => {
-  const [pontos, setPontos] = useState([]);
-
-  const listarPontos = (pontos) => {
-    setPontos([...pontos]);
-  }
 
   return (
     <div className='MainScreen'>
-      <MainPanel posicaoPontos={listarPontos} />
-      <Controls pontos={pontos} />
+      <div className='Caminho'>
+        <Caminho />
+      </div>
+      <div className='GraficoLabels'>
+        <GraficoLabels />
+      </div>
+      <div className='Grafico'>
+        <Grafico />
+      </div>
+      <div className='Controles'>
+        <Controles />
+      </div>
+
     </div>
   )
 }

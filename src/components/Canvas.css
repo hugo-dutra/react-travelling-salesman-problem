@@ -1,5 +1,6 @@
-.CanvasClass {
-  background-color: rgb(255, 255, 255);
-  border: red 2px solid;
-  border-radius: 5px 5px 0px 0px;
+.Canvas {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  border: 20px;
 }
