@@ -1,0 +1,9 @@
+.SelectMutacao {
+  display: grid;
+  grid-column: 1/4;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+
+  border-right: none;
+  border-left: none;
+}
