@@ -1,0 +1,18 @@
+.Button {
+  background-color: #FF9200;
+  width: 90%;
+  height: 75%;
+  justify-self: center;
+  align-self: center;
+  color: #444;
+  border: none;
+  font-size: 1.4em;
+  border-radius: 10px;
+  border: #f7b55f 3px solid;
+  cursor: pointer;
+}
+
+.Button:active {
+  background-color: #f7b55f;
+  border: #FF9200 3px solid;
+}

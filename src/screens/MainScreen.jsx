@@ -1,28 +1,21 @@
 import './MainScreen.css';
 import React from 'react';
-import Caminho from '../components/Caminho';
+import Cidades from '../components/Cidades';
 import Controles from '../components/Controles';
-import Grafico from '../components/Grafico';
-import GraficoLabels from '../components/GraficoLabels';
 
 
 const MainScreen = (props) => {
 
   return (
     <div className='MainScreen'>
-      <div className='Caminho'>
-        <Caminho />
-      </div>
-      <div className='GraficoLabels'>
-        <GraficoLabels />
-      </div>
-      <div className='Grafico'>
-        <Grafico />
-      </div>
-      <div className='Controles'>
+      <div className='ContainerControles'>
         <Controles />
       </div>
-
+      <div className='ContainerLabels'>Labels</div>
+      <div className='ContainerGrafico'>Gráfico</div>
+      <div className='ContainerCidades'>
+        <Cidades />
+      </div>
     </div>
   )
 }
