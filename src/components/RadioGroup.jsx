@@ -10,8 +10,8 @@ const RadioGroup = props => {
       {radioButtons.map(rbn => {
         return (
           <div>
-            <input id={label} type="radio" name={rbn.name} value={rbn.value}></input>
-            <label>{rbn.label}</label>
+            <input id={rbn.name} type="radio" name={label} value={rbn.value}></input>
+            <label htmlFor={rbn.name}>{rbn.label}</label>
           </div>
         )
       })}
