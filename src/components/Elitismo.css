@@ -1,0 +1,7 @@
+.checkboxElitismo {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+  align-content: center;
+}

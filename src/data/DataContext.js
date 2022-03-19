@@ -9,6 +9,7 @@ export const data = {
   torneio: 0,
   novoIndividuo: false,
   populacaoGeral: false,
+  isElitismo: false,
   pontos: []
 };
 
@@ -21,6 +22,8 @@ export const initialState = {
   torneio: 0,
   novoIndividuo: false,
   populacaoGeral: false,
+  isElitismo: false,
+
   pontos: []
 };
 

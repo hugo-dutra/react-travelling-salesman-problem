@@ -4,14 +4,15 @@ import Input from './Input';
 import Button from './Button';
 import RadioGroup from './RadioGroup';
 import { DataContext, initialState } from '../data/DataContext';
+import Elitismo from './Elitismo';
 
 const Controles = props => {
 
   const { dataState, setDataState } = useContext(DataContext);
 
   useEffect(() => {
-    //console.clear();
-    //console.table(dataState);
+    console.clear();
+    console.table(dataState);
   }, [dataState])
 
   const criarPopulacao = () => {
@@ -50,6 +51,11 @@ const Controles = props => {
     }
   }
 
+  const handleAlterarElitismo = (e) => {
+    const { checked } = e.target;
+    setDataState({ ...dataState, [`isElitismo`]: checked })
+  }
+
   return (
     <div className='ComponenteControles'>
       <Input label='Tamanho da populacao' inputId='inputTamanhoPopulacao' keyName='tamanho_populacao' maxLength={5} step={1} inputChange={handleInputChange} />
@@ -58,10 +64,11 @@ const Controles = props => {
       <Input label='Evoluções' inputId='inputEvolucoes' keyName='evolucoes' maxLength={4} step={1} inputChange={handleInputChange} />
       <Input label='Elitismo' inputId='inputElitismo' keyName='elitismo' maxLength={1} step={1} inputChange={handleInputChange} />
       <Input label='Torneio' inputId='inputTorneio' keyName='torneio' maxLength={1} step={1} inputChange={handleInputChange} />
-      <RadioGroup label='Mutação' radioButtons={radioButtons} setTipoMutacao={handleSetTipoMutacao} />
       <Button label='Criar população' onClick={criarPopulacao} />
       <Button label='Executar/Continuar' onClick={executarContinuar} />
       <Button label='Limpar' onClick={limpar} />
+      <RadioGroup label='Mutação' radioButtons={radioButtons} setTipoMutacao={handleSetTipoMutacao} alterarElitismo={handleAlterarElitismo} />
+
     </div>
   )
 }

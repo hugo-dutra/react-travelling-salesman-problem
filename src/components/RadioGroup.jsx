@@ -1,9 +1,10 @@
 import './RadioGroup.css';
 import React from 'react'
 import PropTypes from 'prop-types'
+import Elitismo from './Elitismo';
 
 const RadioGroup = props => {
-  const { label, radioButtons, setTipoMutacao } = props;
+  const { label, radioButtons, setTipoMutacao, alterarElitismo } = props;
   return (
     <fieldset className='SelectMutacao'>
       <legend>{label}</legend>
@@ -15,6 +16,7 @@ const RadioGroup = props => {
           </div>
         )
       })}
+      <Elitismo alterarElitismo={(e) => { alterarElitismo(e) }} />
     </fieldset>
   )
 }
@@ -22,7 +24,8 @@ const RadioGroup = props => {
 RadioGroup.propTypes = {
   label: PropTypes.string.isRequired,
   setTipoMutacao: PropTypes.func.isRequired,
-  radioButtons: PropTypes.array.isRequired
+  radioButtons: PropTypes.array.isRequired,
+  alterarElitismo: PropTypes.func.isRequired
 }
 
 export default RadioGroup
