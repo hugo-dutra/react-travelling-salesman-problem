@@ -1,11 +1,18 @@
 import './Controles.css';
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useContext, useEffect } from 'react'
 import Input from './Input';
 import Button from './Button';
 import RadioGroup from './RadioGroup';
+import { DataContext, initialState } from '../data/DataContext';
 
 const Controles = props => {
+
+  const { dataState, setDataState } = useContext(DataContext);
+
+  useEffect(() => {
+    console.clear();
+    console.table(dataState);
+  }, [dataState])
 
   const criarPopulacao = () => {
     console.clear();
@@ -18,24 +25,42 @@ const Controles = props => {
   }
 
   const limpar = () => {
-    console.clear();
-    console.log('Limpar');
+    setDataState(initialState);
   }
 
   const radioButtons = [
-    { name: 'novoIndividuio', value: 'novoIndividuo', label: ' Novo indivíduo' },
-    { name: 'populacaoGeral', value: 'populacaoGeral', label: ' População Geral' },
+    { name: 'novoIndividuo', label: ' Novo indivíduo' },
+    { name: 'populacaoGeral', label: ' População Geral' },
   ];
+
+  const handleInputChange = (e, keyName) => {
+    setDataState({ ...dataState, [`${keyName}`]: +e.target.value })
+  }
+
+  const handleSetTipoMutacao = (e, name) => {
+    switch (name) {
+      case 'novoIndividuo':
+        setDataState({ ...dataState, [`novoIndividuo`]: true, [`populacaoGeral`]: false })
+        break;
+      case 'populacaoGeral':
+        setDataState({ ...dataState, [`populacaoGeral`]: true, [`novoIndividuo`]: false })
+        break;
+      default:
+        break;
+    }
+  }
+
+
 
   return (
     <div className='ComponenteControles'>
-      <Input label='Tamanho da populacao' inputId='inputTamanhoPopulacao' maxLength={5} step={1} />
-      <Input label='Taxa de Crossover' inputId='inputTaxaCrossover' maxLength={4} step={0.001} />
-      <Input label='Taxa de Mutação' inputId='inputTaxaMutassao' maxLength={5} step={0.0001} />
-      <Input label='Evolucoes' inputId='inputEvolucoes' maxLength={4} step={1} />
-      <Input label='Elitismo' inputId='inputElitismo' maxLength={1} step={1} />
-      <Input label='Torneio' inputId='inputTorneio' maxLength={1} step={1} />
-      <RadioGroup label='Mutação' radioButtons={radioButtons} />
+      <Input label='Tamanho da populacao' inputId='inputTamanhoPopulacao' keyName='tamanho_populacao' maxLength={5} step={1} inputChange={handleInputChange} />
+      <Input label='Taxa de Crossover' inputId='inputTaxaCrossover' keyName='taxa_crossover' maxLength={4} step={0.001} inputChange={handleInputChange} />
+      <Input label='Taxa de Mutação' inputId='inputTaxaMutassao' keyName='taxa_mutacao' maxLength={5} step={0.0001} inputChange={handleInputChange} />
+      <Input label='Evoluções' inputId='inputEvolucoes' keyName='evolucoes' maxLength={4} step={1} inputChange={handleInputChange} />
+      <Input label='Elitismo' inputId='inputElitismo' keyName='elitismo' maxLength={1} step={1} inputChange={handleInputChange} />
+      <Input label='Torneio' inputId='inputTorneio' keyName='torneio' maxLength={1} step={1} inputChange={handleInputChange} />
+      <RadioGroup label='Mutação' radioButtons={radioButtons} setTipoMutacao={handleSetTipoMutacao} />
       <Button label='Criar população' onClick={criarPopulacao} />
       <Button label='Executar/Continuar' onClick={executarContinuar} />
       <Button label='Limpar' onClick={limpar} />
@@ -43,6 +68,6 @@ const Controles = props => {
   )
 }
 
-Controles.propTypes = {}
+
 
 export default Controles

@@ -4,10 +4,10 @@ import MainScreen from "./screens/MainScreen";
 import { useState } from 'react'
 
 const App = () => {
-  const [state, setState] = useState(data);
+  const [dataState, setDataState] = useState(data);
 
   return (
-    <DataContext.Provider value={{ state, setState }}>
+    <DataContext.Provider value={{ dataState, setDataState }}>
       <MainScreen />
     </DataContext.Provider>
   );
