@@ -9,15 +9,15 @@ const Cidades = props => {
 
   useEffect(() => {
     const { pontos } = dataState;
+    const { current } = refCanvas;
+    const context = refCanvas.current.getContext('2d');
     if (pontos.length == 0) {
-      const { current } = refCanvas;
-      const context = refCanvas.current.getContext('2d');
       context.canvas.width = window.innerWidth * 0.55;
       context.canvas.height = window.innerHeight;
       context.clearRect(0, 0, window.innerWidth * 0.55, window.innerHeight);
+    } else {
+      drawPath(dataState.pontos, context);
     };
-
-
   }, [dataState])
 
   const handleClickCanvas = (e) => {
@@ -62,6 +62,19 @@ const Cidades = props => {
     });
   }
 
+  const drawPath = (pontos, ctx) => {
+    ctx.beginPath();
+    pontos.forEach((point, idx) => {
+      if (idx === 0) {
+        ctx.moveTo(point.x, point.y);
+      } else {
+        ctx.lineTo(point.x, point.y)
+      }
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "#555";
+      ctx.stroke();
+    });
+  }
 
   return (
     <canvas ref={refCanvas} className='CanvasCidades' onClick={handleClickCanvas}></canvas>
