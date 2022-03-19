@@ -8,11 +8,17 @@ const Cidades = props => {
   const refCanvas = useRef(null);
 
   useEffect(() => {
-    const { current } = refCanvas;
-    const context = refCanvas.current.getContext('2d');
-    context.canvas.width = window.innerWidth * 0.55;
-    context.canvas.height = window.innerHeight;
-  }, [])
+    const { pontos } = dataState;
+    if (pontos.length == 0) {
+      const { current } = refCanvas;
+      const context = refCanvas.current.getContext('2d');
+      context.canvas.width = window.innerWidth * 0.55;
+      context.canvas.height = window.innerHeight;
+      context.clearRect(0, 0, window.innerWidth * 0.55, window.innerHeight);
+    };
+
+
+  }, [dataState])
 
   const handleClickCanvas = (e) => {
     const { clientX, clientY } = e;
@@ -55,6 +61,7 @@ const Cidades = props => {
       ctx.fill();
     });
   }
+
 
   return (
     <canvas ref={refCanvas} className='CanvasCidades' onClick={handleClickCanvas}></canvas>
