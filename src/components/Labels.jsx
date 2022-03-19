@@ -6,8 +6,8 @@ const Labels = props => {
   const { evolucoes, distancia } = props;
   return (
     <div className='Labels'>
-      <label for="">Evoluções: {evolucoes}</label>
-      <label for="">Distância: {distancia}</label>
+      <label htmlFor="">Evoluções: {evolucoes}</label>
+      <label htmlFor="">Distância: {distancia}</label>
     </div>
   )
 }

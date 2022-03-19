@@ -9,7 +9,7 @@ export const data = {
   torneio: 0,
   novoIndividuo: false,
   populacaoGeral: false,
-  pointos: []
+  pontos: []
 };
 
 export const initialState = {
@@ -21,7 +21,7 @@ export const initialState = {
   torneio: 0,
   novoIndividuo: false,
   populacaoGeral: false,
-  pointos: []
+  pontos: []
 };
 
 export const DataContext = React.createContext();

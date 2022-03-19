@@ -10,8 +10,8 @@ const Controles = props => {
   const { dataState, setDataState } = useContext(DataContext);
 
   useEffect(() => {
-    console.clear();
-    console.table(dataState);
+    //console.clear();
+    //console.table(dataState);
   }, [dataState])
 
   const criarPopulacao = () => {
@@ -49,8 +49,6 @@ const Controles = props => {
         break;
     }
   }
-
-
 
   return (
     <div className='ComponenteControles'>

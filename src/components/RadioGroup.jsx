@@ -9,7 +9,7 @@ const RadioGroup = props => {
       <legend>{label}</legend>
       {radioButtons.map(rbn => {
         return (
-          <div>
+          <div key={`radioButton_${rbn.name}`}>
             <input id={rbn.name} type="radio" name={label} onChange={(e) => { setTipoMutacao(e, rbn.name) }} ></input>
             <label htmlFor={rbn.name}>{rbn.label}</label>
           </div>

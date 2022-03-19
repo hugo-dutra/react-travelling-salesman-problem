@@ -2,4 +2,5 @@ body, html {
   box-sizing: border-box;
   padding: 0;
   border: 0;
+  overflow-y: hidden;
 }
