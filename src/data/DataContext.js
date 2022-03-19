@@ -23,7 +23,6 @@ export const initialState = {
   novoIndividuo: false,
   populacaoGeral: false,
   isElitismo: false,
-
   pontos: []
 };
 

@@ -10,15 +10,21 @@ const Cidades = props => {
   useEffect(() => {
     const { pontos } = dataState;
     const { current } = refCanvas;
-    const context = refCanvas.current.getContext('2d');
-    if (pontos.length == 0) {
-      context.canvas.width = window.innerWidth * 0.55;
-      context.canvas.height = window.innerHeight;
-      context.clearRect(0, 0, window.innerWidth * 0.55, window.innerHeight);
+    const context = current.getContext('2d');
+    if (pontos.length === 0) {
+      limparCidades(context);
     } else {
-      drawPath(dataState.pontos, context);
+      drawPoints(dataState.pontos, context)
     };
+    /* eslint-disable-next-line */
   }, [dataState])
+
+  const limparCidades = (context) => {
+    context.beginPath();
+    context.canvas.width = window.innerWidth * 0.55;
+    context.canvas.height = window.innerHeight;
+    context.clearRect(0, 0, window.innerWidth * 0.55, window.innerHeight);
+  }
 
   const handleClickCanvas = (e) => {
     const { clientX, clientY } = e;
@@ -44,7 +50,7 @@ const Cidades = props => {
     ctx.fillStyle = "#555";
     ctx.fill();
 
-    setDataState({ ...dataState, ['pontos']: [...dataState.pontos, { x, y }] })
+    setDataState({ ...dataState, [`pontos`]: [...dataState.pontos, { x, y }] })
     drawPoints(dataState.pontos, ctx);
   }
 
@@ -60,6 +66,7 @@ const Cidades = props => {
       ctx.fillStyle = "#555";
       ctx.fill();
     });
+    drawPath(pontos, ctx);
   }
 
   const drawPath = (pontos, ctx) => {

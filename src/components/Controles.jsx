@@ -1,19 +1,19 @@
 import './Controles.css';
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Input from './Input';
 import Button from './Button';
 import RadioGroup from './RadioGroup';
 import { DataContext, initialState } from '../data/DataContext';
-import Elitismo from './Elitismo';
+import { postTspAlgorithm } from '../services/TspAlgorithm';
 
 const Controles = props => {
 
   const { dataState, setDataState } = useContext(DataContext);
 
-  useEffect(() => {
+  /* useEffect(() => {
     console.clear();
     console.table(dataState);
-  }, [dataState])
+  }, [dataState]) */
 
   const criarPopulacao = () => {
     console.clear();
@@ -21,8 +21,11 @@ const Controles = props => {
   }
 
   const executarContinuar = () => {
-    console.clear();
-    console.log('Executar/Continuar');
+    postTspAlgorithm(dataState).then(response => {
+      const { data } = response;
+      setDataState({ ...dataState, [`pontos`]: [] });
+      setDataState({ ...dataState, [`pontos`]: [...data.pontos] });
+    });
   }
 
   const limpar = () => {
@@ -68,7 +71,6 @@ const Controles = props => {
       <Button label='Executar/Continuar' onClick={executarContinuar} />
       <Button label='Limpar' onClick={limpar} />
       <RadioGroup label='Mutação' radioButtons={radioButtons} setTipoMutacao={handleSetTipoMutacao} alterarElitismo={handleAlterarElitismo} />
-
     </div>
   )
 }
